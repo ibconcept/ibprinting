@@ -1,144 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="IB Printing offers high-quality printing services including large format, vinyl cutting, heatpress, logos, business cards, and more. Create a lasting impression with our unique designs.">
-  <meta name="keywords" content="printing services, logo design, business cards, large format printing, vinyl cutting, heatpress, custom stickers, posters, matatu stickers">
-  <meta name="author" content="Your Name">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Materials Marketplace</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #hero-banner {
+            display: flex;
+            transition: transform 2s ease-in-out; /* Slow transition of 2 seconds */
+        }
+        .hero-slide {
+            opacity: 0;
+            position: absolute;
+            transition: opacity 2s ease-in-out; /* Smooth fade effect */
+        }
 
-  <title>IB Printing - Print Services</title>
-  <link rel="stylesheet" href="styles.css">
+        .hero-slide.active {
+            opacity: 1;
+            position: relative;
+        }
+    </style>
 </head>
 <body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.PNG" alt="IB Printing Logo" style="max-height: 50px;">
+            </div>
+            <div class="search-bar">
+                <div class="search-dropdown">
+                    <button id="category-toggle">All <span class="dropdown-arrow">&#9660;</span></button>
+                    <ul class="dropdown-menu" id="category-menu">
+                        <li><a href="#">All</a></li>
+                        <li><a href="#">Print Materials</a></li>
+                        <li><a href="#">Promotional Items</a></li>
+                        <li><a href="#">Logos</a></li>
+                        <li><a href="#">Large Format</a></li>
+                        <li><a href="#">Vinyl Cutting</a></li>
+                        <li><a href="#">Heatpress Service</a></li>
+                        <li><a href="#">Printing Papers</a></li>
+                        <li><a href="#">Printing Promo Items</a></li>
+                        <li><a href="#">Stationery</a></li>
+                        <li><a href="#">Branding</a></li>
+                        <li><a href="#">Printing Types</a></li>
+                    </ul>
+                </div>
+                <input type="text" placeholder="Search print materials..." id="search-input">
+                <button onclick="searchProducts()">Search</button>
+            </div>
+            <nav class="top-nav">
+                <ul class="top-nav-links">
+                    <li><a href="#">Deliver to Nairobi</a></li>
+                    <li><a href="#">KES</a></li>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Wishlist</a></li>
+                    <li><a href="#">Cart</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <header>
-   <div><img src="logo.PNG" alt="IB Printing Logo" class="logo"  > </div> 
-   <nav>
-      <ul class="main-menu">
-        <li><a href="design.html">Design</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="print.html">Print</a></li>
-        <li><a href="branding.html">Branding</a></li>
-        <li><a href="services.html">Services</a></li> 
-        <li><a href="about.html">About</a></li>
-      </ul>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <button class="hamburger" onclick="toggleMenu()">☰ Categories</button>
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="#">Top Deals</a></li>
+                <li><a href="#">Top Ranking</a></li>
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">Recommended For You</a></li>
+                <li><a href="#">Print & Promotional Items</a></li>
+            </ul>
+        </div>
     </nav>
-    
-   </header>
-    
- 
-  <div class="container">
-    <p>At IB Printing, we pride ourselves on delivering high-quality printing services and machines tailored to meet your unique needs...</p>
-    <p>Print Process & Print Machines</p>
-    
-  <div class="subcategory">
-    <h3>Logos</h3>
-    <p>Create working designs</p>
-    <figure>
-      <img src="logo_design_image.jpg" alt="Logo Design Services" class="images">
-      <figcaption>All Visual Design Services</figcaption>
-    </figure>
-  </div>
 
-    <h2>Print Categories</h2>
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-banner" id="hero-banner">
+                <div class="hero-slide">
+                    <div class="banner-content">
+                        <h2>Your Premier Printing Partner in Nairobi & East Africa</h2>
+                        <p>At IB Printing, we pride ourselves on delivering high-quality printing services and machines tailored to meet your unique needs. <a href="#">Learn more about our Print Process & Print Machines</a></p>
+                    </div>
+                    <div class="hero-image">
+                        <img src="placeholder-hero1.jpg" alt="Printing Services">
+                    </div>
+                </div>
+                <div class="hero-slide">
+                    <div class="banner-content">
+                        <h2>Innovative Print Solutions</h2>
+                        <p>Explore our comprehensive range of services designed to elevate your brand. <a href="#">Discover More</a></p>
+                    </div>
+                    <div class="hero-image">
+                        <img src="placeholder-hero2.jpg" alt="Innovative Print Solutions">
+                    </div>
+                </div>
+                <div class="hero-slide">
+                    <div class="banner-content">
+                        <h2>Reliable Print Machines</h2>
+                        <p>We ensure precision and excellence in every project. <a href="#">Shop Now</a></p>
+                    </div>
+                    <div class="hero-image">
+                        <img src="placeholder-hero3.jpg" alt="Reliable Print Machines">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="category">
-      <h3>Logos</h3>
-      <p>Create memorable logo designs</p>
-    </div>
+    <section class="content-section">
+        <h2>Print Categories</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <h3>Logos</h3>
+                <p>Create memorable logo designs</p>
+            </div>
+            <div class="category-card">
+                <h3>Large Format</h3>
+                <p>Print large format designs</p>
+            </div>
+            <div class="category-card">
+                <h3>Vinyl Cutting</h3>
+                <p>Precision vinyl cutting services</p>
+            </div>
+            <div class="category-card">
+                <h3>Heatpress Service</h3>
+                <p>Custom heatpress services</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="print-categories">
-      <div class="category">
-        <h3>Large Format</h3>
-        <p>Print large format designs</p>
-      </div>
+    <section class="content-section">
+        <h2>Logos</h2>
+        <div class="subsection">
+            <img src="logo_design_image.jpg" alt="All Visual Design Services">
+            <p>Create working designs</p>
+        </div>
+    </section>
 
-      <div class="category">
-        <h3>Vinyl Cutting</h3>
-        <p>Precision vinyl cutting services</p>
-      </div>
+    <section class="content-section">
+        <h2>Large Format</h2>
+        <div class="subsection">
+            <img src="large_format_image.png" alt="Large Format Printing">
+            <p>Print large format designs</p>
+        </div>
+    </section>
 
-      <div class="category">
-        <h3>Heatpress Service</h3>
-        <p>Custom heatpress services</p>
-      </div>
+    <section class="content-section">
+        <h2>Vinyl Cutting</h2>
+        <div class="subsection">
+            <img src="vinyl_cutting_image.jpg" alt="Vinyl Cutting Services">
+            <p>Precision vinyl cutting services</p>
+        </div>
+    </section>
 
-      
+    <section class="content-section">
+        <h2>Heatpress Service</h2>
+        <div class="subsection">
+            <img src="heatpress_image.jpg" alt="Heatpress Printing Services">
+            <p>Custom heatpress services</p>
+        </div>
+    </section>
 
-      <!-- Add more categories as needed -->
-<!-- Inside the category div -->
- 
+    <section class="content-section">
+        <h2>Printing Papers</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <h3>Art Paper</h3>
+                <p>High-quality paper for vibrant prints</p>
+            </div>
+            <div class="category-card">
+                <h3>Bond Paper</h3>
+                <p>Durable paper for everyday use</p>
+            </div>
+            <div class="category-card">
+                <h3>Matte Paper</h3>
+                <p>Non-reflective finish for professional prints</p>
+            </div>
+            <div class="category-card">
+                <h3>Chipboard</h3>
+                <p>Thick and sturdy for packaging</p>
+            </div>
+        </div>
+        <hr>
+    </section>
 
-  <div class="subcategory">
-    <h3 style="background-color:pink;">Large Format</h3>
-    <p style="text-align: right; padding-top:200px;">Print large format designs
-      <b> 
-      <br>  Banners
-        <br> Glossy & matte vinlys
-        <br> Clear Stickers
-        <br> Satin
-        <br>  Flags Materials 
-        <br> Stickers
-      </b> 
-    </p>
-    
-   
-    <figure>
-      <img src="large_format_image.png" alt="Large Format Printing">
-      <figcaption>Large Format Printing</figcaption>
-    </figure>
-  </div>
+    <section class="content-section">
+        <h2>Printing Promo Items</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <h3>Flyers</h3>
+                <p>Custom flyers for promotions</p>
+            </div>
+            <div class="category-card">
+                <h3>Caps</h3>
+                <p>Personalized caps for branding</p>
+            </div>
+            <div class="category-card">
+                <h3>Posters</h3>
+                <p>Eye-catching posters for events</p>
+            </div>
+            <div class="category-card">
+                <h3>Roll-up Banners</h3>
+                <p>Portable banners for marketing</p>
+            </div>
+        </div>
+        <hr>
+    </section>
 
-  <div class="subcategory">
-    <h3>Vinyl Cutting</h3>
-    <p>Precision vinyl cutting services</p>
-    <figure>
-      <img src="vinyl_cutting_image.jpg" alt="Vinyl Cutting Services">
-      <figcaption>Vinyl Cutting Services</figcaption>
-    </figure>
-  </div>
+    <section class="content-section">
+        <h2>Stationery</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <h3>Letterhead</h3>
+                <p>Professional letterhead for businesses</p>
+            </div>
+            <div class="category-card">
+                <h3>Business Cards</h3>
+                <p>Custom business cards for networking</p>
+            </div>
+            <div class="category-card">
+                <h3>Menus</h3>
+                <p>Personalized menus for restaurants</p>
+            </div>
+            <div class="category-card">
+                <h3>Receipt Books</h3>
+                <p>Custom receipt books for transactions</p>
+            </div>
+        </div>
+        <hr>
+    </section>
 
-  <div class="subcategory">
-    <h3>Heatpress Service</h3>
-    <p>Custom heatpress services</p>
-    <figure>
-      <img src="heatpress_image.jpg" alt="Heatpress Printing Services">
-      <figcaption>Heatpress Printing Services</figcaption>
-    </figure>
-  </div>
+    <section class="content-section">
+        <h2>Branding</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <h3>T-shirt Printing</h3>
+                <p>Custom T-shirts for branding</p>
+            </div>
+            <div class="category-card">
+                <h3>Vehicle Branding</h3>
+                <p>Professional vehicle wraps</p>
+            </div>
+            <div class="category-card">
+                <h3>Office Branding</h3>
+                <p>Custom office decor and signage</p>
+            </div>
+            <div class="category-card">
+                <h3>School Branding</h3>
+                <p>Custom branding for schools</p>
+            </div>
+        </div>
+        <hr>
+    </section>
 
-  <div class="subcategory">
-    <h3>Printing Papers</h3>
-    <p>Choose from a variety of printing papers: art paper, art card, bond paper, bank paper, NCR, matte paper, newsprint, chipboard</p>
-  </div>
+    <section class="content-section">
+        <h2>Printing Types</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <h3>Large Format</h3>
+                <p>High-quality large format printing</p>
+            </div>
+            <div class="category-card">
+                <h3>Engraving</h3>
+                <p>Precision engraving services</p>
+            </div>
+            <div class="category-card">
+                <h3>Sublimation</h3>
+                <p>Heat transfer for vibrant designs</p>
+            </div>
+            <div class="category-card">
+                <h3>Embroidery</h3>
+                <p>Custom embroidery for textiles</p>
+            </div>
+        </div>
+        <hr>
+    </section>
 
-  <div class="subcategory">
-    <h3>Printing Promo Items</h3>
-    <p>Print promotional items including flyers, caps, polo shirts, overalls, reflector jackets, posters, brochures, banners, roll-up banners</p>
-  </div>
+    <footer>
+        <p>&copy; 2024 ibprinting | site design & development by <a href="http://ibconcept.vip" style="background-color: yellow;">ibconcept</a></p>
+    </footer>
 
-  <div class="subcategory">
-    <h3>Stationery</h3>
-    <p>Personalized stationery including letterhead, business cards, menus, receipt books, invoices, delivery notes, invitations cards, scanning, laminations</p>
-  </div>
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('open');
+        }
 
-  <div class="subcategory">
-    <h3>Branding</h3>
-    <p>Specialized branding services for T-shirt printing, vehicle branding (in bold), office branding, school branding</p>
-  </div>
+        function searchProducts() {
+            const searchTerm = document.getElementById('search-input').value;
+            alert(`Searching for: ${searchTerm}`); // Replace with actual search logic
+        }
 
-  <div class="subcategory">
-    <h3>Printing Types</h3>
-    <p>Explore various printing types such as large format, engraving, CNC router, perspex, aluco board, rubber stamp, cellular, heat transfer, heat press, dark transfer, sublimation, no cut, embroidery, and more</p>
-  </div>
+        const categoryToggle = document.getElementById('category-toggle');
+        const categoryMenu = document.getElementById('category-menu');
 
-</div>
+        categoryToggle.addEventListener('click', () => {
+            categoryMenu.classList.toggle('open');
+        });
 
-<footer>
-  <p>&copy; 2024 ibprinting</p>
-<p>site design & development by <a href="www.ibconcept.xyz" style="text-decoration: none; background-color: yellow;">ibconcept</a></p>
-</footer>
+        document.addEventListener('click', (event) => {
+            if (!categoryToggle.contains(event.target) && !categoryMenu.contains(event.target)) {
+                categoryMenu.classList.remove('open');
+            }
+        });
 
+        let currentSlide = 0;
+
+        function blinkHero() {
+            const slides = document.querySelectorAll('.hero-slide');
+            const totalSlides = slides.length;
+
+            // Remove the active class from the current slide
+            slides[currentSlide].classList.remove('active');
+
+            // Increment the slide index
+            currentSlide = (currentSlide + 1) % totalSlides;
+
+            // Add the active class to the next slide
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Initialize the first slide as active
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.hero-slide');
+            if (slides.length > 0) {
+                slides[0].classList.add('active');
+            }
+        });
+
+        // Set up the interval for blinking
+        setInterval(blinkHero, 7000); // Change slide every 7 seconds
+    </script>
 </body>
 </html>
