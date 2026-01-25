@@ -11,4 +11,8 @@ User-agent: facebookexternalhit
 Allow: /
 
 User-agent: *
+<<<<<<< HEAD
 Allow: /
+=======
+Allow: /
+>>>>>>> 538fd1829c5446e76c06ea55857b5ea51e0382ee
