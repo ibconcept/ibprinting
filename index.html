@@ -1,67 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!-- adsense verify -->
-
-<meta name="google-adsense-account" content="ca-pub-6340261732299088">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Print Materials Marketplace</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        #hero-banner {
-            display: flex;
-            transition: transform 2s ease-in-out; /* Slow transition of 2 seconds */
-        }
-        .hero-slide {
-            opacity: 0;
-            position: absolute;
-            transition: opacity 2s ease-in-out; /* Smooth fade effect */
-        }
+    <!-- AIO / SEO / GEO Meta Tags -->
+    <title>Home | ibprint.click East Africa</title>
+    <meta name="description" content="ibprint.click: Nairobi's leading provider for brand activation, custom T-shirts, logo design, and e-commerce solutions. Supplying Kenya, Uganda, Tanzania, and Rwanda.">
+    <meta name="keywords" content="Printing Nairobi, Branding Kenya, Brand Activation East Africa, Vobahub packages, T-shirt printing Nairobi, ibprint click">
+    <meta name="geo.region" content="KE-110" />
+    <meta name="geo.placename" content="Nairobi" />
+    <meta name="author" content="Mainadev Systems">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Explosive Branding & Printing | ibprint.click">
+    <meta property="og:description" content="From logos to full corporate identity. We supply high-quality branding across East Africa.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ibprint.click">
 
-        .hero-slide.active {
-            opacity: 1;
-            position: relative;
-        }
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "LocalBusiness",
+      "name": "ibprint.click",
+      "image": "https://ibprint.click/logo.png",
+      "email": "customercare@ibprint.click",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Nairobi Central",
+        "addressLocality": "Nairobi",
+        "addressCountry": "KE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -1.286389,
+        "longitude": 36.817223
+      },
+      "url": "https://ibprint.click",
+      "telephone": "+254729301689",
+      "areaServed": ["Kenya", "Uganda", "Tanzania", "Rwanda", "South Sudan"]
+    }
+    </script>
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0f172a; color: white; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .hero-gradient { background: radial-gradient(circle at top, #334155 0%, #0f172a 100%); }
+        .whatsapp-btn { background: #25D366; transition: all 0.3s ease; }
+        .whatsapp-btn:hover { background: #128C7E; transform: scale(1.05); }
     </style>
 </head>
-<body>
-    <header class="main-header">
-        <div class="header-container">
-            <div class="logo">
-                <img src="logo.PNG" alt="IB Printing Logo" style="max-height: 50px;">
-            </div>
-            <div class="search-bar">
-                <div class="search-dropdown">
-                    <button id="category-toggle">All <span class="dropdown-arrow">&#9660;</span></button>
-                    <ul class="dropdown-menu" id="category-menu">
-                        <li><a href="index.html">All</a></li>
-                        <li><a href="print-promotional-items.html">Promotional Items</a></li>
-                        <li><a href="large-format.html">Large Format</a></li>
-                        <li><a href="vinyl-laser-cutting.html">Vinyl Cutting</a></li>
-                        <li><a href="heatpress-service.html">Heatpress Service</a></li>
-                        <li><a href="products.html">Printing Papers</a></li>
-                        <li><a href="products.html">Stationery</a></li>
-                        <li><a href="branding.html">Branding</a></li>
-                        <li><a href="printing-types.html">Printing Types</a></li>
-                    </ul>
-                </div>
-                <input type="text" placeholder="Search print materials..." id="search-input">
-                <button onclick="searchProducts()">Search</button>
-            </div>
-            <nav class="top-nav">
-                <ul class="top-nav-links">
-                    <li><a href="#">Deliver to Nairobi</a></li>
-                    <li><a href="#">KES</a></li>
-                    <li><a href="#">My Account</a></li>
-                    <li><a href="#">Wishlist</a></li>
-                    <li><a href="#">Cart</a></li>
-                </ul>
-            </nav>
+<body class="min-h-screen flex flex-col">
+
+    <header class="p-6 flex justify-between items-center border-b border-white/10 glass sticky top-0 z-50">
+        <div class="text-2xl font-extrabold tracking-tighter text-indigo-400">ibprint<span class="text-white">.click</span></div>
+        <nav class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+            <a href="index.html" class="hover:text-white transition">Home</a>
+            <a href="services.html" class="hover:text-white transition">Services</a>
+            <a href="products.html" class="hover:text-white transition">Products</a>
+            <a href="pricing-packages.html" class="hover:text-white transition">Pricing</a>
+            <a href="mailto:customercare@ibprint.click" class="hover:text-white transition">Contact</a>
+        </nav>
+        <div class="flex gap-2">
+            <a href="tel:+254729301689" class="hidden sm:block text-xs text-slate-400 self-center mr-2">Hotline: 0729301689</a>
+            <button onclick="orderWhatsApp('Inquiry')" class="bg-indigo-600 px-5 py-2 rounded-full text-sm font-bold hover:bg-indigo-500 transition">Get Quote</button>
         </div>
     </header>
+
+    <main class="flex-grow hero-gradient px-4 py-16">
     <div class="contact-info" style="background:#f9f9f9;padding:10px 0;margin-bottom:20px;text-align:center;">
         <strong>Questions?</strong> 0279301689, 0719301330 or Email us <a href="mailto:info@ibprint.co.ke">info@ibprint.co.ke</a><br>
         Tell us what you need. Delightfully simple, guaranteed.
@@ -400,48 +408,36 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="FAQ.html">FAQ</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+    </main>
+
+    <footer class="p-12 glass border-t border-white/10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <div class="font-extrabold text-xl">ibprint<span class="text-indigo-500">.click</span></div>
+                <p class="text-xs text-slate-500 mt-2">Nairobi, Kenya | Regional Supply Chain</p>
+                <a href="mailto:customercare@ibprint.click" class="text-xs text-indigo-400 mt-1 block">customercare@ibprint.click</a>
             </div>
-            <div class="footer-col">
-                <h4>Important Pages</h4>
-                <ul>
-                    <li><a href="print-promotional-items.html">Promotional Items</a></li>
-                    <li><a href="large-format.html">Large Format</a></li>
-                    <li><a href="vinyl-laser-cutting.html">Vinyl Cutting</a></li>
-                    <li><a href="heatpress-service.html">Heatpress Service</a></li>
-                    <li><a href="products.html">Printing Papers</a></li>
-                    <li><a href="products.html">Stationery</a></li>
-                    <li><a href="branding.html">Branding</a></li>
-                    <li><a href="printing-types.html">Printing Types</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact Us</h4>
-                <div class="footer-contact">
-                    <strong>IB Printing</strong><br>
-                    Nairobi, Kenya<br>
-                    Phone: <a href="tel:+254719301330">0719 301 330</a><br>
-                    Email: <a href="mailto:info@ibprint.co.ke">info@ibprint.co.ke</a><br>
-                    <br>
-                    <strong>Business Hours:</strong><br>
-                    Mon - Sat: 8:00am - 6:00pm
-                </div>
+            <div class="flex gap-4">
+                <a href="https://wa.me/254729301689" class="whatsapp-btn p-3 rounded-full text-white font-bold flex items-center gap-2 px-6">
+                    <span>Chat 0729301689</span>
+                </a>
+                <a href="https://wa.me/254734007266" class="bg-indigo-900/50 p-3 rounded-full text-white font-bold flex items-center gap-2 px-6 border border-white/10">
+                    <span>Admin 0734007266</span>
+                </a>
             </div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2024 IB Printing | Site design & development by <a href="http://ibconcept.vip" style="color:#ff6f61;">ibconcept</a>
+        <div class="text-center mt-12 pt-8 border-t border-white/5 text-[10px] text-slate-600 uppercase tracking-widest">
+            © 2026 ibprint.click • Mainadev Systems Architecture • Exporting to Kenya, Uganda, Tanzania
         </div>
     </footer>
+
+    <script>
+        function orderWhatsApp(item) {
+            const phoneNumber = "254729301689";
+            const message = encodeURIComponent(`Hi ibprint.click, I want to order/inquire about: ${item}.`);
+            window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
+        }
+    </script>
 
     <script>
         function toggleMenu() {

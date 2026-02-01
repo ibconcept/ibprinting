@@ -1,93 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional design services including web design, UI/UX design, print design, brochure design, and poster design at IB Printing. Create stunning visuals for your business.">
-    <title>Design Services</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- AIO / SEO / GEO Meta Tags -->
+    <title>Design Services | ibprint.click East Africa</title>
+    <meta name="description" content="ibprint.click: Nairobi's leading provider for brand activation, custom T-shirts, logo design, and e-commerce solutions. Supplying Kenya, Uganda, Tanzania, and Rwanda.">
+    <meta name="keywords" content="Printing Nairobi, Branding Kenya, Brand Activation East Africa, Vobahub packages, T-shirt printing Nairobi, ibprint click">
+    <meta name="geo.region" content="KE-110" />
+    <meta name="geo.placename" content="Nairobi" />
+    <meta name="author" content="Mainadev Systems">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Explosive Branding & Printing | ibprint.click">
+    <meta property="og:description" content="From logos to full corporate identity. We supply high-quality branding across East Africa.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ibprint.click">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "LocalBusiness",
+      "name": "ibprint.click",
+      "image": "https://ibprint.click/logo.png",
+      "email": "customercare@ibprint.click",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Nairobi Central",
+        "addressLocality": "Nairobi",
+        "addressCountry": "KE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -1.286389,
+        "longitude": 36.817223
+      },
+      "url": "https://ibprint.click",
+      "telephone": "+254729301689",
+      "areaServed": ["Kenya", "Uganda", "Tanzania", "Rwanda", "South Sudan"]
+    }
+    </script>
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0f172a; color: white; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .hero-gradient { background: radial-gradient(circle at top, #334155 0%, #0f172a 100%); }
+        .whatsapp-btn { background: #25D366; transition: all 0.3s ease; }
+        .whatsapp-btn:hover { background: #128C7E; transform: scale(1.05); }
+    </style>
 </head>
 
-<body>
-    <header>
-        <div><a href="index.html"><img src="logo.PNG" alt="ibprinting logo" class="logo"></a></div>
-        <nav>
-            <ul class="main-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="products.html">Contact</a></li>
-                <li><a href="about.html">Contact</a></li>
-            </ul>
+<body class="min-h-screen flex flex-col">
+
+    <header class="p-6 flex justify-between items-center border-b border-white/10 glass sticky top-0 z-50">
+        <div class="text-2xl font-extrabold tracking-tighter text-indigo-400">ibprint<span class="text-white">.click</span></div>
+        <nav class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+            <a href="index.html" class="hover:text-white transition">Home</a>
+            <a href="services.html" class="hover:text-white transition">Services</a>
+            <a href="products.html" class="hover:text-white transition">Products</a>
+            <a href="pricing-packages.html" class="hover:text-white transition">Pricing</a>
+            <a href="mailto:customercare@ibprint.click" class="hover:text-white transition">Contact</a>
         </nav>
+        <div class="flex gap-2">
+            <a href="tel:+254729301689" class="hidden sm:block text-xs text-slate-400 self-center mr-2">Hotline: 0729301689</a>
+            <button onclick="orderWhatsApp('Inquiry')" class="bg-indigo-600 px-5 py-2 rounded-full text-sm font-bold hover:bg-indigo-500 transition">Get Quote</button>
+        </div>
     </header>
-    <div class="container">
-        <div class="contact-info" style="background:#f9f9f9;padding:10px 0;margin-bottom:20px;text-align:center;">
-            <strong>Questions?</strong> 0279301689, 0719301330 or Email us <a href="mailto:info@ibprint.co.ke">info@ibprint.co.ke</a><br>
-            Tell us what you need. Delightfully simple, guaranteed.
-        </div>
-        <h1>Professional Design Services</h1>
+    <main class="flex-grow hero-gradient px-4 py-16">
+        <div class="container">
+            <div class="contact-info" style="background:#f9f9f9;padding:10px 0;margin-bottom:20px;text-align:center;">
+                <strong>Questions?</strong> 0279301689, 0719301330 or Email us <a href="mailto:info@ibprint.co.ke">info@ibprint.co.ke</a><br>
+                Tell us what you need. Delightfully simple, guaranteed.
+            </div>
+            <h1>Professional Design Services</h1>
 
-        <section class="design-packages" style="margin:30px 0;">
-            <h2>Design Packages & Pricing (Kenya Shilling)</h2>
-            <ul style="list-style:disc;padding-left:20px;">
-                <li><strong>Logo & Identity</strong><br>Logo, Business Card, Letterhead, Envelope<br>From <b>Ksh449</b> <span style="color:green;">Save Ksh149</span></li>
-                <li><strong>Logo & Social Media Assets</strong><br>Logo, Avatars for 3 platforms, Headers for 3 platforms<br>From <b>Ksh399</b> <span style="color:green;">Save Ksh199</span></li>
-                <li><strong>Letterhead & Stationery</strong><br>Business Card, Letterhead, Envelope<br>From <b>Ksh299</b> <span style="color:green;">Save Ksh149</span></li>
-                <li><strong>Logo</strong><br>One unique logo designed to create a great brand.<br>From <b>Ksh299</b></li>
-                <li><strong>Business Card</strong><br>One unique business card designed to impress.<br>From <b>Ksh299</b></li>
-                <li><strong>Design Consultation</strong><br>Let our experts help you.<br><b>Free</b></li>
-                <li><strong>Work 1-to-1</strong><br>Find a creative and work with them directly.<br>From <b>Ksh200</b></li>
-            </ul>
-        </section>
-        <section class="testimonials" style="margin:30px 0;">
-            <h2>What Our Clients Say</h2>
-            <blockquote style="border-left:4px solid #ccc;padding-left:10px;">
-                "We received nearly 100 entries from over 25 creatives and had so many high-quality submissions, I had to ask friends for help to choose a final logo."<br>
-                <b>Matthew Stephenson</b>, Executive Director, Code2College - Pflugerville, TX
-            </blockquote>
-            <blockquote style="border-left:4px solid #ccc;padding-left:10px;">
-                "ibprint's army of creatives generated thousands of ideas for naming our company. Now, Zello is the most popular walkie-talkie app with more than 100 million registered users."<br>
-                <b>Bill Moore</b>, CEO, Zello - Austin, TX
-            </blockquote>
-            <blockquote style="border-left:4px solid #ccc;padding-left:10px;">
-                "I’ve had great success with ibprint, using the website to both redesign an existing website and to create a website from scratch. Both projects produced a large number of high quality design options. Should I have a need for high quality design work in the future, ibprint will be my first stop."<br>
-                <b>Jeff Knowles</b>, Florida Fundraising Association - Vero Beach, FL
-            </blockquote>
-            <blockquote style="border-left:4px solid #ccc;padding-left:10px;">
-                "I love everything about ibprint. The network of creatives is vast and provides great diversity in the results."<br>
-                <b>Elyse Dickerson</b>, CEO, maina - Nairobi
-            </blockquote>
-        </section>
+            <section class="design-packages" style="margin:30px 0;">
+                <h2>Design Packages & Pricing (Kenya Shilling)</h2>
+                <ul style="list-style:disc;padding-left:20px;">
+                    <li><strong>Logo & Identity</strong><br>Logo, Business Card, Letterhead, Envelope<br>From <b>Ksh449</b> <span style="color:green;">Save Ksh149</span></li>
+                    <li><strong>Logo & Social Media Assets</strong><br>Logo, Avatars for 3 platforms, Headers for 3 platforms<br>From <b>Ksh399</b> <span style="color:green;">Save Ksh199</span></li>
+                    <li><strong>Letterhead & Stationery</strong><br>Business Card, Letterhead, Envelope<br>From <b>Ksh299</b> <span style="color:green;">Save Ksh149</span></li>
+                    <li><strong>Logo</strong><br>One unique logo designed to create a great brand.<br>From <b>Ksh299</b></li>
+                    <li><strong>Business Card</strong><br>One unique business card designed to impress.<br>From <b>Ksh299</b></li>
+                    <li><strong>Design Consultation</strong><br>Let our experts help you.<br><b>Free</b></li>
+                    <li><strong>Work 1-to-1</strong><br>Find a creative and work with them directly.<br>From <b>Ksh200</b></li>
+                </ul>
+            </section>
+            <section class="testimonials" style="margin:30px 0;">
+                <h2>What Our Clients Say</h2>
+                <blockquote style="border-left:4px solid #ccc;padding-left:10px;">
+                    "We received nearly 100 entries from over 25 creatives and had so many high-quality submissions, I had to ask friends for help to choose a final logo."<br>
+                    <b>Matthew Stephenson</b>, Executive Director, Code2College - Pflugerville, TX
+                </blockquote>
+                <blockquote style="border-left:4px solid #ccc;padding-left:10px;">
+                    "ibprint's army of creatives generated thousands of ideas for naming our company. Now, Zello is the most popular walkie-talkie app with more than 100 million registered users."<br>
+                    <b>Bill Moore</b>, CEO, Zello - Austin, TX
+                </blockquote>
+                <blockquote style="border-left:4px solid #ccc;padding-left:10px;">
+                    "I’ve had great success with ibprint, using the website to both redesign an existing website and to create a website from scratch. Both projects produced a large number of high quality design options. Should I have a need for high quality design work in the future, ibprint will be my first stop."<br>
+                    <b>Jeff Knowles</b>, Florida Fundraising Association - Vero Beach, FL
+                </blockquote>
+                <blockquote style="border-left:4px solid #ccc;padding-left:10px;">
+                    "I love everything about ibprint. The network of creatives is vast and provides great diversity in the results."<br>
+                    <b>Elyse Dickerson</b>, CEO, maina - Nairobi
+                </blockquote>
+            </section>
 
-        <div class="print-categories">
-            <div class="category">
-                <h2>Web Design</h2>
-                <div class="subcategory">
-                    <span>Responsive Design</span>
-                    <img class="images" src="web-responsive-image.jpg" alt="Responsive Design Image">
+            <div class="print-categories">
+                <div class="category">
+                    <h2>Web Design</h2>
+                    <div class="subcategory">
+                        <span>Responsive Design</span>
+                        <img class="images" src="web-responsive-image.jpg" alt="Responsive Design Image">
+                    </div>
+                    <div class="subcategory">
+                        <span>UI/UX Design</span>
+                        <img class="images" src="ui-ux-design-image.jpg" alt="UI/UX Design Image">
+                    </div>
                 </div>
-                <div class="subcategory">
-                    <span>UI/UX Design</span>
-                    <img class="images" src="ui-ux-design-image.jpg" alt="UI/UX Design Image">
+
+                <div class="category">
+                    <h2>Print Design</h2>
+                    <div class="subcategory">
+                        <span>Brochure Design</span>
+                        <img class="images" src="brochure-design-image.jpg" alt="Brochure Design Image">
+                    </div>
+                    <div class="subcategory">
+                        <span>Poster Design</span>
+                        <img class="images" src="poster-design-image.jpg" alt="Poster Design Image">
+                    </div>
                 </div>
             </div>
 
-            <div class="category">
-                <h2>Print Design</h2>
-                <div class="subcategory">
-                    <span>Brochure Design</span>
-                    <img class="images" src="brochure-design-image.jpg" alt="Brochure Design Image">
-                </div>
-                <div class="subcategory">
-                    <span>Poster Design</span>
-                    <img class="images" src="poster-design-image.jpg" alt="Poster Design Image">
-                </div>
+        </div>
+    </main>
+
+    <footer class="p-12 glass border-t border-white/10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <div class="font-extrabold text-xl">ibprint<span class="text-indigo-500">.click</span></div>
+                <p class="text-xs text-slate-500 mt-2">Nairobi, Kenya | Regional Supply Chain</p>
+                <a href="mailto:customercare@ibprint.click" class="text-xs text-indigo-400 mt-1 block">customercare@ibprint.click</a>
+            </div>
+            <div class="flex gap-4">
+                <a href="https://wa.me/254729301689" class="whatsapp-btn p-3 rounded-full text-white font-bold flex items-center gap-2 px-6">
+                    <span>Chat 0729301689</span>
+                </a>
+                <a href="https://wa.me/254734007266" class="bg-indigo-900/50 p-3 rounded-full text-white font-bold flex items-center gap-2 px-6 border border-white/10">
+                    <span>Admin 0734007266</span>
+                </a>
             </div>
         </div>
+        <div class="text-center mt-12 pt-8 border-t border-white/5 text-[10px] text-slate-600 uppercase tracking-widest">
+            © 2026 ibprint.click • Mainadev Systems Architecture • Exporting to Kenya, Uganda, Tanzania
+        </div>
+    </footer>
 
-    </div>
-
+    <script>
+        function orderWhatsApp(item) {
+            const phoneNumber = "254729301689";
+            const message = encodeURIComponent(`Hi ibprint.click, I want to order/inquire about: ${item}.`);
+            window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
+        }
+    </script>
 </body>
 
 </html>
