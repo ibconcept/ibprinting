@@ -19,6 +19,9 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="favicon-192.png">
+    <link rel="manifest" href="manifest.json">
     
     <script type="application/ld+json">
     {
@@ -64,6 +67,19 @@
             <a href="mailto:customercare@ibprint.click" class="hover:text-white transition">Contact</a>
         </nav>
         <div class="flex gap-2">
+            <form action="https://www.google.com/search" method="get" class="flex gap-2">
+                <select onchange="if(this.value) window.location.href=this.value" class="px-3 py-2 rounded bg-white/10 text-white">
+                    <option value="">Categories</option>
+                    <option value="top-deals.html">Top Deals</option>
+                    <option value="top-ranking.html">Top Ranking</option>
+                    <option value="new-arrivals.html">New Arrivals</option>
+                    <option value="recommended.html">Recommended For You</option>
+                    <option value="print-promotional-items.html">Print & Promotional Items</option>
+                </select>
+                <input name="q" type="text" placeholder="Search ibprint.click" class="px-3 py-2 rounded bg-white/10 text-white placeholder-slate-400">
+                <input type="hidden" name="sitesearch" value="ibprint.click">
+                <button type="submit" class="px-3 py-2 bg-indigo-600 rounded text-white">Search</button>
+            </form>
             <a href="tel:+254729301689" class="hidden sm:block text-xs text-slate-400 self-center mr-2">Hotline: 0729301689</a>
             <button onclick="orderWhatsApp('Inquiry')" class="bg-indigo-600 px-5 py-2 rounded-full text-sm font-bold hover:bg-indigo-500 transition">Get Quote</button>
         </div>
@@ -162,13 +178,32 @@
                 <a href="mailto:customercare@ibprint.click" class="text-xs text-indigo-400 mt-1 block">customercare@ibprint.click</a>
             </div>
             <div class="flex gap-4">
-                <a href="https://wa.me/254729301689" class="whatsapp-btn p-3 rounded-full text-white font-bold flex items-center gap-2 px-6">
-                    <span>Chat 0729301689</span>
-                </a>
                 <a href="https://wa.me/254734007266" class="bg-indigo-900/50 p-3 rounded-full text-white font-bold flex items-center gap-2 px-6 border border-white/10">
                     <span>Admin 0734007266</span>
                 </a>
             </div>
+        </div>
+        <div class="mt-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
+            <a href="about.html" class="text-slate-400 hover:text-white transition text-sm">About</a>
+            <a href="branding.html" class="text-slate-400 hover:text-white transition text-sm">Branding</a>
+            <a href="design.html" class="text-slate-400 hover:text-white transition text-sm">Design</a>
+            <a href="FAQ.html" class="text-slate-400 hover:text-white transition text-sm">FAQ</a>
+            <a href="heatpress-service.html" class="text-slate-400 hover:text-white transition text-sm">Heatpress</a>
+            <a href="large-format.html" class="text-slate-400 hover:text-white transition text-sm">Large Format</a>
+            <a href="logos.html" class="text-slate-400 hover:text-white transition text-sm">Logos</a>
+            <a href="new-arrivals.html" class="text-slate-400 hover:text-white transition text-sm">New Arrivals</a>
+            <a href="pricing-packages.html" class="text-slate-400 hover:text-white transition text-sm">Pricing Packages</a>
+            <a href="print-materials.html" class="text-slate-400 hover:text-white transition text-sm">Print Materials</a>
+            <a href="print-promotional-items.html" class="text-slate-400 hover:text-white transition text-sm">Promotional Items</a>
+            <a href="print.html" class="text-slate-400 hover:text-white transition text-sm">Print</a>
+            <a href="products.html" class="text-slate-400 hover:text-white transition text-sm">Products</a>
+            <a href="promotional-items.html" class="text-slate-400 hover:text-white transition text-sm">Promotional</a>
+            <a href="recommended.html" class="text-slate-400 hover:text-white transition text-sm">Recommended</a>
+            <a href="services.html" class="text-slate-400 hover:text-white transition text-sm">Services</a>
+            <a href="top-deals.html" class="text-slate-400 hover:text-white transition text-sm">Top Deals</a>
+            <a href="top-ranking.html" class="text-slate-400 hover:text-white transition text-sm">Top Ranking</a>
+            <a href="vinyl-cutting.html" class="text-slate-400 hover:text-white transition text-sm">Vinyl Cutting</a>
+            <a href="vinyl-laser-cutting.html" class="text-slate-400 hover:text-white transition text-sm">Vinyl Laser</a>
         </div>
         <div class="text-center mt-12 pt-8 border-t border-white/5 text-[10px] text-slate-600 uppercase tracking-widest">
             © 2026 ibprint.click • Mainadev Systems Architecture • Exporting to Kenya, Uganda, Tanzania
@@ -182,5 +217,13 @@
             window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
         }
     </script>
+
+    <div class="fixed bottom-4 right-4 z-50">
+        <a href="https://wa.me/254729301689" class="bg-green-500 p-4 rounded-full text-white shadow-lg hover:bg-green-600 transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+            </svg>
+        </a>
+    </div>
 </body>
 </html>

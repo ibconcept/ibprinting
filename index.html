@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- AIO / SEO / GEO Meta Tags -->
     <title>Home | ibprint.click East Africa</title>
     <meta name="description" content="ibprint.click: Nairobi's leading provider for brand activation, custom T-shirts, logo design, and e-commerce solutions. Supplying Kenya, Uganda, Tanzania, and Rwanda.">
     <meta name="keywords" content="Printing Nairobi, Branding Kenya, Brand Activation East Africa, Vobahub packages, T-shirt printing Nairobi, ibprint click">
@@ -29,7 +28,7 @@
       "email": "customercare@ibprint.click",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Nairobi Central",
+        "streetAddress": "Nairobi Central, Westlands & Mombasa Rd",
         "addressLocality": "Nairobi",
         "addressCountry": "KE"
       },
@@ -45,450 +44,312 @@
     </script>
 
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0f172a; color: white; scroll-behavior: smooth; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0f172a; color: white; scroll-behavior: smooth; overflow-x: hidden; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .hero-gradient { background: radial-gradient(circle at top, #334155 0%, #0f172a 100%); }
-        .whatsapp-btn { background: #25D366; transition: all 0.3s ease; }
-        .whatsapp-btn:hover { background: #128C7E; transform: scale(1.05); }
+        
+        /* Dropdown fix for contrast */
+        select option { color: #0f172a !important; background: white !important; }
+        
+        /* Hero Animations */
+        .hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.5s ease-in-out; }
+        .hero-slide.active { opacity: 1; }
+        .hero-slide img { width: 100%; height: 100%; object-fit: cover; transform: scale(1); transition: transform 8s linear; }
+        .hero-slide.active img { transform: scale(1.15); }
+
+        /* Marquee */
+        .marquee { overflow: hidden; white-space: nowrap; background: #4f46e5; padding: 12px 0; }
+        .marquee-content { display: inline-block; animation: marquee 35s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        
+        /* Grid styling */
+        .category-card { transition: all 0.3s ease; }
+        .category-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.08); }
+        
+        /* Mobile Menu */
+        #mobile-menu.open { display: flex; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
-    <header class="p-6 flex justify-between items-center border-b border-white/10 glass sticky top-0 z-50">
-        <div class="text-2xl font-extrabold tracking-tighter text-indigo-400">ibprint<span class="text-white">.click</span></div>
-        <nav class="hidden md:flex gap-8 text-sm font-medium text-slate-400">
-            <a href="index.html" class="hover:text-white transition">Home</a>
-            <a href="services.html" class="hover:text-white transition">Services</a>
-            <a href="products.html" class="hover:text-white transition">Products</a>
-            <a href="pricing-packages.html" class="hover:text-white transition">Pricing</a>
-            <a href="mailto:customercare@ibprint.click" class="hover:text-white transition">Contact</a>
-        </nav>
-        <div class="flex gap-2">
-            <a href="tel:+254729301689" class="hidden sm:block text-xs text-slate-400 self-center mr-2">Hotline: 0729301689</a>
-            <button onclick="orderWhatsApp('Inquiry')" class="bg-indigo-600 px-5 py-2 rounded-full text-sm font-bold hover:bg-indigo-500 transition">Get Quote</button>
+    <!-- HEADER START -->
+    <header class="p-4 md:p-6 flex flex-col gap-4 border-b border-white/10 glass sticky top-0 z-[100]">
+        <div class="flex justify-between items-center w-full">
+            <div class="flex items-center gap-4">
+                <button onclick="toggleMenu()" class="md:hidden text-2xl">☰</button>
+                <a href="index.html" class="text-2xl font-extrabold tracking-tighter text-indigo-400">ibprint<span class="text-white">.click</span></a>
+            </div>
+
+            <nav class="hidden md:flex gap-6 text-sm font-semibold text-slate-300">
+                <a href="services.html" class="hover:text-indigo-400 transition">Services</a>
+                <a href="products.html" class="hover:text-indigo-400 transition">Products</a>
+                <a href="pricing-packages.html" class="hover:text-indigo-400 transition">Pricing</a>
+                <a href="mailto:customercare@ibprint.click" class="hover:text-indigo-400 transition">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <form action="https://www.google.com/search" method="get" class="hidden lg:flex gap-2">
+                    <input name="q" type="text" placeholder="Search materials..." class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-indigo-500">
+                    <input type="hidden" name="sitesearch" value="ibprint.click">
+                </form>
+                <button onclick="orderWhatsApp('General Quote')" class="bg-indigo-600 px-5 py-2 rounded-full text-sm font-bold hover:bg-indigo-500 transition shadow-lg shadow-indigo-600/20">Get Quote</button>
+            </div>
+        </div>
+
+        <!-- CATEGORY DROPDOWN BAR -->
+        <div class="flex items-center gap-4 overflow-x-auto pb-2 no-scrollbar">
+            <select onchange="if(this.value) window.location.href=this.value" class="px-4 py-2 rounded-lg bg-indigo-500/10 text-indigo-300 text-xs font-bold border border-indigo-500/20 cursor-pointer">
+                <option value="">SHOP CATEGORIES</option>
+                <option value="top-deals.html">🔥 Top Deals</option>
+                <option value="top-ranking.html">🏆 Top Ranking</option>
+                <option value="new-arrivals.html">✨ New Arrivals</option>
+                <option value="print-promotional-items.html">🎁 Promotional Items</option>
+                <option value="print-materials.html">📄 Print Materials</option>
+            </select>
+            <div class="flex gap-4 text-[11px] font-bold uppercase tracking-widest text-slate-500 whitespace-nowrap">
+                <span class="text-indigo-400">Westlands HQ</span>
+                <span>Mombasa Rd Branch</span>
+                <span>East Africa Export</span>
+            </div>
         </div>
     </header>
 
-    <main class="flex-grow hero-gradient px-4 py-16">
-    <div class="contact-info" style="background:#f9f9f9;padding:10px 0;margin-bottom:20px;text-align:center;">
-        <strong>Questions?</strong> 0279301689, 0719301330 or Email us <a href="mailto:info@ibprint.co.ke">info@ibprint.co.ke</a><br>
-        Tell us what you need. Delightfully simple, guaranteed.
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-slate-950 z-[90] flex-col p-8 gap-6 pt-24">
+        <a href="services.html" class="text-2xl font-bold">Services</a>
+        <a href="products.html" class="text-2xl font-bold">Products</a>
+        <a href="pricing-packages.html" class="text-2xl font-bold">Pricing</a>
+        <a href="about.html" class="text-2xl font-bold">About</a>
+        <button onclick="toggleMenu()" class="mt-auto py-4 bg-white/5 rounded-xl font-bold">Close Menu</button>
     </div>
 
-    <nav class="main-nav">
-        <div class="nav-container">
-            <button class="hamburger" onclick="toggleMenu()">☰ Categories</button>
-            <ul class="nav-links" id="nav-menu">
-                <li><a href="top-deals.html">Top Deals</a></li>
-                <li><a href="top-ranking.html">Top Ranking</a></li>
-                <li><a href="new-arrivals.html">New Arrivals</a></li>
-                <li><a href="recommended.html">Recommended For You</a></li>
-                <li><a href="print-promotional-items.html">Print & Promotional Items</a></li>
-            </ul>
-        </div>
-    </nav>
+    <main class="flex-grow">
+        <!-- HERO SECTION -->
+        <section class="relative h-[85vh] flex items-center overflow-hidden">
+            <div id="slideshow-container" class="absolute inset-0 -z-10">
+                <div class="hero-slide active"><img src="https://images.unsplash.com/photo-1562654501-a0ccc0af3fa1?q=80&w=2000" alt="Slide 1"></div>
+                <div class="hero-slide"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000" alt="Slide 2"></div>
+                <div class="hero-slide"><img src="https://images.unsplash.com/photo-1610631882985-adab003092ec?q=80&w=2000" alt="Slide 3"></div>
+                <div class="absolute inset-0 bg-slate-950/70"></div>
+            </div>
 
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-banner" id="hero-banner">
-                <div class="hero-slide">
-                    <div class="banner-content">
-                        <h2>Your Premier Printing Partner in Nairobi & East Africa</h2>
-                        <p>At IB Printing, we pride ourselves on delivering high-quality printing services and machines tailored to meet your unique needs. <a href="#">Learn more about our Print Process & Print Machines</a></p>
+            <div class="max-w-7xl mx-auto px-6 w-full text-center md:text-left">
+                <div class="max-w-3xl space-y-6">
+                    <div class="inline-block px-4 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 text-xs font-bold uppercase tracking-widest">
+                        Mainadev Printing Architecture
                     </div>
-                    <div class="hero-image">
-                        <img src="placeholder-hero1.jpg" alt="Printing Services">
-                    </div>
-                </div>
-                <div class="hero-slide">
-                    <div class="banner-content">
-                        <h2>Innovative Print Solutions</h2>
-                        <p>Explore our comprehensive range of services designed to elevate your brand. <a href="#">Discover More</a></p>
-                    </div>
-                    <div class="hero-image">
-                        <img src="placeholder-hero2.jpg" alt="Innovative Print Solutions">
-                    </div>
-                </div>
-                <div class="hero-slide">
-                    <div class="banner-content">
-                        <h2>Reliable Print Machines</h2>
-                        <p>We ensure precision and excellence in every project. <a href="#">Shop Now</a></p>
-                    </div>
-                    <div class="hero-image">
-                        <img src="placeholder-hero3.jpg" alt="Reliable Print Machines">
+                    <h1 class="text-5xl md:text-8xl font-extrabold leading-tight tracking-tighter">
+                        Printing <br>
+                        <span id="sliding-text" class="text-indigo-500 transition-opacity duration-500">Perfectly.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-300 max-w-xl mx-auto md:mx-0 leading-relaxed">Your premier partner for brand activation, high-end corporate identity, and printing materials across East Africa.</p>
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4 pt-4">
+                        <button onclick="document.getElementById('catalog').scrollIntoView()" class="bg-indigo-600 px-8 py-4 rounded-xl font-bold hover:bg-indigo-500 transition shadow-xl">Shop Materials</button>
+                        <button onclick="orderWhatsApp('Express')" class="px-8 py-4 rounded-xl font-bold border border-white/20 hover:bg-white/5 transition">View Services</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="content-section">
-        <h2>Print Categories</h2>
-<<<<<<< HEAD
-        <div class="category-flex-grid print-categories-30vw">
-            <div class="category-card print-category-30vw">
-                <img src="logo_design_image.jpg" alt="Logos">
-                <div>Logos</div>
-            </div>
-            <div class="category-card print-category-30vw">
-                <img src="large_format_image.png" alt="Large Format">
-                <div>Large Format</div>
-            </div>
-            <div class="category-card print-category-30vw">
-                <img src="vinyl_cutting_image.jpg" alt="Vinyl Cutting">
-                <div>Vinyl Cutting</div>
-            </div>
-            <div class="category-card print-category-30vw">
-=======
-        <div class="category-flex-grid">
-            <div class="category-card">
-                <img src="logo_design_image.jpg" alt="Logos">
-                <div>Logos</div>
-            </div>
-            <div class="category-card">
-                <img src="large_format_image.png" alt="Large Format">
-                <div>Large Format</div>
-            </div>
-            <div class="category-card">
-                <img src="vinyl_cutting_image.jpg" alt="Vinyl Cutting">
-                <div>Vinyl Cutting</div>
-            </div>
-            <div class="category-card">
->>>>>>> 538fd1829c5446e76c06ea55857b5ea51e0382ee
-                <img src="heatpress_image.jpg" alt="Heatpress Service">
-                <div>Heatpress Service</div>
+        <!-- MARQUEE -->
+        <div class="marquee border-y border-white/10">
+            <div class="marquee-content font-black text-xs tracking-widest uppercase">
+                SAME DAY DELIVERY WESTLANDS • CUSTOM BRANDING • HIGH-RESOLUTION PLOTTING • ECO-SOLVENT PRINTING • LARGE FORMAT • MAINADEV ARCHITECTURE • MOMBASA ROAD BRANCH • EXPORTING TO UGANDA & TANZANIA • SAME DAY DELIVERY WESTLANDS • CUSTOM BRANDING • HIGH-RESOLUTION PLOTTING • ECO-SOLVENT PRINTING • LARGE FORMAT • MAINADEV ARCHITECTURE •
             </div>
         </div>
-    </section>
 
-    <section class="content-section">
-        <h2>Logos</h2>
-        <div class="subsection-grid">
-            <div class="subcategory-card">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Office Logo">
-                <h4>Office Logo</h4>
+        <!-- CATEGORIES GRID -->
+        <section id="catalog" class="py-20 max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold tracking-tight mb-4">Service Categories</h2>
+                <p class="text-slate-400">Expertly ordered printing solutions for every business need.</p>
             </div>
-            <div class="subcategory-card">
-                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="School Logo">
-                <h4>School Logo</h4>
-            </div>
-            <div class="subcategory-card">
-                <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Corporate Logo">
-                <h4>Corporate Logo</h4>
-            </div>
-        </div>
-    </section>
 
-    <section class="content-section">
-        <h2>Large Format</h2>
-        <div class="subsection-grid">
-            <div class="subcategory-card">
-                <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80" alt="Banners">
-                <h4>Banners</h4>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+                <!-- Large Format -->
+                <a href="large-format.html" class="category-card glass p-4 rounded-2xl text-center flex flex-col items-center gap-3">
+                    <div class="w-16 h-16 rounded-full bg-indigo-600/20 flex items-center justify-center">
+                        <img src="https://img.icons8.com/ios-filled/50/6366f1/print.png" class="w-8 h-8 opacity-80" alt="Icon">
+                    </div>
+                    <h3 class="font-bold text-sm">Large Format</h3>
+                </a>
+                <!-- Logos -->
+                <a href="logos.html" class="category-card glass p-4 rounded-2xl text-center flex flex-col items-center gap-3">
+                    <div class="w-16 h-16 rounded-full bg-indigo-600/20 flex items-center justify-center">
+                        <img src="https://img.icons8.com/ios-filled/50/6366f1/vector-box.png" class="w-8 h-8 opacity-80" alt="Icon">
+                    </div>
+                    <h3 class="font-bold text-sm">Logo Design</h3>
+                </a>
+                <!-- T-shirts -->
+                <a href="heatpress-service.html" class="category-card glass p-4 rounded-2xl text-center flex flex-col items-center gap-3">
+                    <div class="w-16 h-16 rounded-full bg-indigo-600/20 flex items-center justify-center">
+                        <img src="https://img.icons8.com/ios-filled/50/6366f1/t-shirt.png" class="w-8 h-8 opacity-80" alt="Icon">
+                    </div>
+                    <h3 class="font-bold text-sm">Heatpress</h3>
+                </a>
+                <!-- Vinyl -->
+                <a href="vinyl-cutting.html" class="category-card glass p-4 rounded-2xl text-center flex flex-col items-center gap-3">
+                    <div class="w-16 h-16 rounded-full bg-indigo-600/20 flex items-center justify-center">
+                        <img src="https://img.icons8.com/ios-filled/50/6366f1/cutting.png" class="w-8 h-8 opacity-80" alt="Icon">
+                    </div>
+                    <h3 class="font-bold text-sm">Vinyl Cutting</h3>
+                </a>
+                <!-- Stationery -->
+                <a href="products.html" class="category-card glass p-4 rounded-2xl text-center flex flex-col items-center gap-3">
+                    <div class="w-16 h-16 rounded-full bg-indigo-600/20 flex items-center justify-center">
+                        <img src="https://img.icons8.com/ios-filled/50/6366f1/stationery.png" class="w-8 h-8 opacity-80" alt="Icon">
+                    </div>
+                    <h3 class="font-bold text-sm">Stationery</h3>
+                </a>
             </div>
-            <div class="subcategory-card">
-                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=400&q=80" alt="Stickers">
-                <h4>Stickers</h4>
-            </div>
-            <div class="subcategory-card">
-                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="One Way">
-                <h4>One Way</h4>
-            </div>
-            <div class="subcategory-card">
-                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Roll Up">
-                <h4>Roll Up</h4>
-            </div>
-            <div class="subcategory-card">
-                <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80" alt="Telescopic Flag">
-                <h4>Telescopic Flag</h4>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="content-section">
-        <h2>Vinyl Cutting</h2>
-        <div class="subsection-grid">
-            <div class="subcategory-card">
-                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Vinyl Stickers">
-                <h4>Vinyl Stickers</h4>
+        <!-- PRODUCT SHOWCASE (COMPACT IMAGES) -->
+        <section class="py-16 bg-slate-900/50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex justify-between items-end mb-12">
+                    <h2 class="text-3xl font-extrabold">Top Ranking Products</h2>
+                    <a href="top-ranking.html" class="text-indigo-400 font-bold text-sm underline">View All</a>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Product 1 -->
+                    <div class="product-card glass rounded-3xl overflow-hidden border border-white/10 group">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Banners">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-extrabold mb-1">Deluxe Roll-Up</h3>
+                            <p class="text-slate-500 text-xs mb-4">Westlands Express Delivery</p>
+                            <button onclick="orderWhatsApp('Rollup')" class="w-full py-2 rounded-xl bg-white text-slate-900 font-black text-xs hover:bg-indigo-500 hover:text-white transition">Inquire Now</button>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="product-card glass rounded-3xl overflow-hidden border border-white/10 group">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Vinyl">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-extrabold mb-1">Vinyl Decals</h3>
+                            <p class="text-slate-500 text-xs mb-4">Mombasa Rd Batch Processing</p>
+                            <button onclick="orderWhatsApp('Vinyl')" class="w-full py-2 rounded-xl bg-white text-slate-900 font-black text-xs hover:bg-indigo-500 hover:text-white transition">Inquire Now</button>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="product-card glass rounded-3xl overflow-hidden border border-white/10 group">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-15214467040aa2-94b599307521?auto=format&fit=crop&q=80&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Gifts">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-extrabold mb-1">Branded Apparel</h3>
+                            <p class="text-slate-500 text-xs mb-4">Corporate Quality Standards</p>
+                            <button onclick="orderWhatsApp('Apparel')" class="w-full py-2 rounded-xl bg-white text-slate-900 font-black text-xs hover:bg-indigo-500 hover:text-white transition">Inquire Now</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="subcategory-card">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Cut Letters">
-                <h4>Cut Letters</h4>
-            </div>
-        </div>
-    </section>
-
-    <section class="content-section">
-        <h2>Heatpress Service</h2>
-        <div class="subsection-grid">
-            <div class="subcategory-card">
-                <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="T-shirt Printing">
-                <h4>T-shirt Printing</h4>
-            </div>
-            <div class="subcategory-card">
-                <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80" alt="Cap Printing">
-                <h4>Cap Printing</h4>
-            </div>
-        </div>
-    </section>
-
-    <section class="content-section">
-        <h2>CNC Cutting & Perspex Engraving</h2>
-        <div class="subsection-grid">
-            <div class="subcategory-card">
-                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=400&q=80" alt="CNC Cutting">
-                <h4>CNC Cutting</h4>
-            </div>
-            <div class="subcategory-card">
-                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Perspex Engraving">
-                <h4>Perspex Engraving</h4>
-            </div>
-        </div>
-    </section>
-
-    <section class="content-section">
-        <h2>Printing Papers</h2>
-        <div class="category-grid">
-            <div class="category-card">
-                <h3>Art Paper</h3>
-                <p>High-quality paper for vibrant prints</p>
-            </div>
-            <div class="category-card">
-                <h3>Bond Paper</h3>
-                <p>Durable paper for everyday use</p>
-            </div>
-            <div class="category-card">
-                <h3>Matte Paper</h3>
-                <p>Non-reflective finish for professional prints</p>
-            </div>
-            <div class="category-card">
-                <h3>Chipboard</h3>
-                <p>Thick and sturdy for packaging</p>
-            </div>
-        </div>
-        <hr>
-    </section>
-
-    <section class="content-section">
-        <h2>Printing Promo Items</h2>
-        <div class="category-grid">
-            <div class="category-card">
-                <h3>Flyers</h3>
-                <p>Custom flyers for promotions</p>
-            </div>
-            <div class="category-card">
-                <h3>Caps</h3>
-                <p>Personalized caps for branding</p>
-            </div>
-            <div class="category-card">
-                <h3>Posters</h3>
-                <p>Eye-catching posters for events</p>
-            </div>
-            <div class="category-card">
-                <h3>Roll-up Banners</h3>
-                <p>Portable banners for marketing</p>
-            </div>
-        </div>
-        <hr>
-    </section>
-
-    <section class="content-section">
-        <h2>Stationery</h2>
-        <div class="category-grid">
-            <div class="category-card">
-                <h3>Letterhead</h3>
-                <p>Professional letterhead for businesses</p>
-            </div>
-            <div class="category-card">
-                <h3>Business Cards</h3>
-                <p>Custom business cards for networking</p>
-            </div>
-            <div class="category-card">
-                <h3>Menus</h3>
-                <p>Personalized menus for restaurants</p>
-            </div>
-            <div class="category-card">
-                <h3>Receipt Books</h3>
-                <p>Custom receipt books for transactions</p>
-            </div>
-        </div>
-        <hr>
-    </section>
-
-    <section class="content-section">
-        <h2>Branding</h2>
-        <div class="category-grid">
-            <div class="category-card">
-                <h3>T-shirt Printing</h3>
-                <p>Custom T-shirts for branding</p>
-            </div>
-            <div class="category-card">
-                <h3>Vehicle Branding</h3>
-                <p>Professional vehicle wraps</p>
-            </div>
-            <div class="category-card">
-                <h3>Office Branding</h3>
-                <p>Custom office decor and signage</p>
-            </div>
-            <div class="category-card">
-                <h3>School Branding</h3>
-                <p>Custom branding for schools</p>
-            </div>
-        </div>
-        <hr>
-    </section>
-
-    <section class="content-section">
-        <h2>Printing Types</h2>
-        <div class="category-grid">
-            <div class="category-card">
-                <h3>Large Format</h3>
-                <p>High-quality large format printing</p>
-            </div>
-            <div class="category-card">
-                <h3>Engraving</h3>
-                <p>Precision engraving services</p>
-            </div>
-            <div class="category-card">
-                <h3>Sublimation</h3>
-                <p>Heat transfer for vibrant designs</p>
-            </div>
-            <div class="category-card">
-                <h3>Embroidery</h3>
-                <p>Custom embroidery for textiles</p>
-            </div>
-        </div>
-        <hr>
-    </section>
-
-    <section class="content-section">
-        <h2>Browse Categories</h2>
-        <div class="category-grid compact">
-            <div class="category-card">
-                <a href="logos.html"><img src="logo_design_image.jpg" alt="Logo Design"><div>Logo Design</div></a>
-            </div>
-            <div class="category-card">
-                <a href="business-names.html"><img src="logo.PNG" alt="Business Names"><div>Business Names</div></a>
-            </div>
-            <div class="category-card">
-                <a href="business-card-design.html"><img src="unnamed.png" alt="Business Card Design"><div>Business Card Design</div></a>
-            </div>
-            <div class="category-card">
-                <a href="website-design.html"><img src="web-responsive-image.jpg" alt="Website Design"><div>Website Design</div></a>
-            </div>
-            <div class="category-card">
-                <a href="package-graphics.html"><img src="placeholder-hero2.jpg" alt="Package Graphics"><div>Package Graphics</div></a>
-            </div>
-            <div class="category-card">
-                <a href="packaging-design.html"><img src="placeholder-hero3.jpg" alt="Packaging Design"><div>Packaging Design</div></a>
-            </div>
-            <div class="category-card">
-                <a href="product-design.html"><img src="glitter carbon fiber sticker.jpg" alt="Product Design"><div>Product Design</div></a>
-            </div>
-            <div class="category-card">
-                <a href="tshirt-design.html"><img src="heatpress_image.jpg" alt="T-shirt Design"><div>T-shirt Design</div></a>
-            </div>
-            <div class="category-card">
-                <a href="book-cover-design.html"><img src="placeholder-hero1.jpg" alt="Book Cover Design"><div>Book Cover Design</div></a>
-            </div>
-        </div>
-    </section>
-    <section class="content-section">
-        <h2>Resources</h2>
-        <div class="category-grid compact">
-            <div class="category-card"><a href="#"><img src="placeholder-hero1.jpg" alt="Blog"><div>Blog</div></a></div>
-            <div class="category-card"><a href="#"><img src="placeholder-hero2.jpg" alt="Guides"><div>Guides</div></a></div>
-            <div class="category-card"><a href="#"><img src="placeholder-hero3.jpg" alt="Webinars"><div>Webinars</div></a></div>
-            <div class="category-card"><a href="#"><img src="logo.PNG" alt="Books"><div>Books</div></a></div>
-            <div class="category-card"><a href="#"><img src="unnamed.png" alt="Quizzes"><div>Quizzes</div></a></div>
-            <div class="category-card"><a href="#"><img src="logo_design_image.jpg" alt="Small Business Ideas"><div>Small Business Ideas</div></a></div>
-            <div class="category-card"><a href="#"><img src="large_format_image.png" alt="Starting a Business"><div>Starting a Business</div></a></div>
-            <div class="category-card"><a href="#"><img src="vinyl_cutting_image.jpg" alt="How to form an LLC"><div>How to form an LLC</div></a></div>
-        </div>
-    </section>
-
+        </section>
     </main>
 
-    <footer class="p-12 glass border-t border-white/10">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-center md:text-left">
-                <div class="font-extrabold text-xl">ibprint<span class="text-indigo-500">.click</span></div>
-                <p class="text-xs text-slate-500 mt-2">Nairobi, Kenya | Regional Supply Chain</p>
-                <a href="mailto:customercare@ibprint.click" class="text-xs text-indigo-400 mt-1 block">customercare@ibprint.click</a>
+    <!-- FOOTER START -->
+    <footer class="p-12 glass border-t border-white/10 mt-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
+                <div class="max-w-xs">
+                    <div class="font-extrabold text-2xl tracking-tighter mb-4">ibprint<span class="text-indigo-500">.click</span></div>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6">Nairobi's hub for explosive branding and regional printing supply. We cover Kenya, Uganda, Tanzania, and beyond.</p>
+                    <div class="flex flex-col gap-2">
+                        <a href="https://wa.me/254729301689" class="text-indigo-400 font-bold hover:underline">Chat: 0729301689</a>
+                        <a href="https://wa.me/254734007266" class="text-slate-400 hover:underline">Admin: 0734007266</a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 flex-grow">
+                    <div class="space-y-3">
+                        <h4 class="font-black text-[10px] uppercase tracking-widest text-indigo-500">Core Services</h4>
+                        <ul class="text-sm text-slate-400 space-y-2">
+                            <li><a href="branding.html" class="hover:text-white">Branding</a></li>
+                            <li><a href="design.html" class="hover:text-white">Design</a></li>
+                            <li><a href="large-format.html" class="hover:text-white">Large Format</a></li>
+                            <li><a href="logos.html" class="hover:text-white">Logos</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <h4 class="font-black text-[10px] uppercase tracking-widest text-indigo-500">E-Commerce</h4>
+                        <ul class="text-sm text-slate-400 space-y-2">
+                            <li><a href="top-deals.html" class="hover:text-white">Top Deals</a></li>
+                            <li><a href="new-arrivals.html" class="hover:text-white">New Arrivals</a></li>
+                            <li><a href="recommended.html" class="hover:text-white">Recommended</a></li>
+                            <li><a href="top-ranking.html" class="hover:text-white">Top Ranking</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <h4 class="font-black text-[10px] uppercase tracking-widest text-indigo-500">Print Store</h4>
+                        <ul class="text-sm text-slate-400 space-y-2">
+                            <li><a href="print-materials.html" class="hover:text-white">Materials</a></li>
+                            <li><a href="print-promotional-items.html" class="hover:text-white">Promo Items</a></li>
+                            <li><a href="heatpress-service.html" class="hover:text-white">Heatpress</a></li>
+                            <li><a href="vinyl-cutting.html" class="hover:text-white">Vinyl Cutting</a></li>
+                        </ul>
+                    </div>
+                    <div class="space-y-3">
+                        <h4 class="font-black text-[10px] uppercase tracking-widest text-indigo-500">Support</h4>
+                        <ul class="text-sm text-slate-400 space-y-2">
+                            <li><a href="FAQ.html" class="hover:text-white">FAQ</a></li>
+                            <li><a href="about.html" class="hover:text-white">About Us</a></li>
+                            <li><a href="pricing-packages.html" class="hover:text-white">Pricing</a></li>
+                            <li><a href="services.html" class="hover:text-white">All Services</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="flex gap-4">
-                <a href="https://wa.me/254729301689" class="whatsapp-btn p-3 rounded-full text-white font-bold flex items-center gap-2 px-6">
-                    <span>Chat 0729301689</span>
-                </a>
-                <a href="https://wa.me/254734007266" class="bg-indigo-900/50 p-3 rounded-full text-white font-bold flex items-center gap-2 px-6 border border-white/10">
-                    <span>Admin 0734007266</span>
-                </a>
+
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-slate-600 font-bold uppercase tracking-widest">
+                <div>© 2026 ibprint.click • Mainadev Systems Architecture</div>
+                <div class="flex gap-6">
+                    <span>#mainadev</span>
+                    <span>#dev</span>
+                    <span>Nairobi Westlands & Mombasa Rd</span>
+                </div>
             </div>
-        </div>
-        <div class="text-center mt-12 pt-8 border-t border-white/5 text-[10px] text-slate-600 uppercase tracking-widest">
-            © 2026 ibprint.click • Mainadev Systems Architecture • Exporting to Kenya, Uganda, Tanzania
         </div>
     </footer>
 
     <script>
-        function orderWhatsApp(item) {
-            const phoneNumber = "254729301689";
-            const message = encodeURIComponent(`Hi ibprint.click, I want to order/inquire about: ${item}.`);
-            window.location.href = `https://wa.me/${phoneNumber}?text=${message}`;
-        }
-    </script>
-
-    <script>
-        function toggleMenu() {
-            const navMenu = document.getElementById('nav-menu');
-            navMenu.classList.toggle('open');
-        }
-
-        function searchProducts() {
-            const searchTerm = document.getElementById('search-input').value;
-            alert(`Searching for: ${searchTerm}`); // Replace with actual search logic
-        }
-
-        const categoryToggle = document.getElementById('category-toggle');
-        const categoryMenu = document.getElementById('category-menu');
-
-        categoryToggle.addEventListener('click', () => {
-            categoryMenu.classList.toggle('open');
-        });
-
-        document.addEventListener('click', (event) => {
-            if (!categoryToggle.contains(event.target) && !categoryMenu.contains(event.target)) {
-                categoryMenu.classList.remove('open');
-            }
-        });
-
+        // Hero Slideshow
+        const slides = document.querySelectorAll('.hero-slide');
         let currentSlide = 0;
-
-        function blinkHero() {
-            const slides = document.querySelectorAll('.hero-slide');
-            const totalSlides = slides.length;
-
-            // Remove the active class from the current slide
+        setInterval(() => {
             slides[currentSlide].classList.remove('active');
-
-            // Increment the slide index
-            currentSlide = (currentSlide + 1) % totalSlides;
-
-            // Add the active class to the next slide
+            currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
+        }, 8000);
+
+        // Sliding Text Logic
+        const words = ["Perfectly.", "Swiftly.", "Globally.", "Mainadev."];
+        let wordIdx = 0;
+        const txt = document.getElementById('sliding-text');
+        setInterval(() => {
+            txt.style.opacity = 0;
+            setTimeout(() => {
+                wordIdx = (wordIdx + 1) % words.length;
+                txt.innerText = words[wordIdx];
+                txt.style.opacity = 1;
+            }, 500);
+        }, 4000);
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
         }
 
-        // Initialize the first slide as active
-        document.addEventListener('DOMContentLoaded', () => {
-            const slides = document.querySelectorAll('.hero-slide');
-            if (slides.length > 0) {
-                slides[0].classList.add('active');
-            }
-        });
-
-        // Set up the interval for blinking
-        setInterval(blinkHero, 7000); // Change slide every 7 seconds
+        // WhatsApp Ordering
+        function orderWhatsApp(item) {
+            const phone = "254729301689";
+            const message = encodeURIComponent(`Hi ibprint.click, I want to order/inquire about: ${item}.`);
+            window.location.href = `https://wa.me/${phone}?text=${message}`;
+        }
     </script>
 </body>
 </html>
