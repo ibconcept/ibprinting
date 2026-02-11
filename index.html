@@ -74,10 +74,7 @@
     <!-- HEADER START -->
     <header class="p-4 md:p-6 flex flex-col gap-4 border-b border-white/10 glass sticky top-0 z-[100]">
         <div class="flex justify-between items-center w-full">
-            <div class="flex items-center gap-4">
-                <button onclick="toggleMenu()" class="md:hidden text-2xl">☰</button>
-                <a href="index.html" class="text-2xl font-extrabold tracking-tighter text-indigo-400">ibprint<span class="text-white">.click</span></a>
-            </div>
+            <a href="index.html" class="text-2xl font-extrabold tracking-tighter text-indigo-400">ibprint<span class="text-white">.click</span></a>
 
             <nav class="hidden md:flex gap-6 text-sm font-semibold text-slate-300">
                 <a href="services.html" class="hover:text-indigo-400 transition">Services</a>
@@ -92,11 +89,12 @@
                     <input type="hidden" name="sitesearch" value="ibprint.click">
                 </form>
                 <button onclick="orderWhatsApp('General Quote')" class="bg-indigo-600 px-5 py-2 rounded-full text-sm font-bold hover:bg-indigo-500 transition shadow-lg shadow-indigo-600/20">Get Quote</button>
+                <button onclick="toggleMenu()" class="md:hidden text-2xl">☰</button>
             </div>
         </div>
 
         <!-- CATEGORY DROPDOWN BAR -->
-        <div class="flex items-center gap-4 overflow-x-auto pb-2 no-scrollbar">
+        <div class="hidden md:flex items-center gap-4 overflow-x-auto pb-2 no-scrollbar">
             <select onchange="if(this.value) window.location.href=this.value" class="px-4 py-2 rounded-lg bg-indigo-500/10 text-indigo-300 text-xs font-bold border border-indigo-500/20 cursor-pointer">
                 <option value="">SHOP CATEGORIES</option>
                 <option value="top-deals.html">🔥 Top Deals</option>
@@ -119,6 +117,20 @@
         <a href="products.html" class="text-2xl font-bold">Products</a>
         <a href="pricing-packages.html" class="text-2xl font-bold">Pricing</a>
         <a href="about.html" class="text-2xl font-bold">About</a>
+        <div class="flex flex-col gap-4">
+            <h3 class="text-lg font-bold text-indigo-400">Shop Categories</h3>
+            <a href="top-deals.html" class="text-xl font-semibold">🔥 Top Deals</a>
+            <a href="top-ranking.html" class="text-xl font-semibold">🏆 Top Ranking</a>
+            <a href="new-arrivals.html" class="text-xl font-semibold">✨ New Arrivals</a>
+            <a href="print-promotional-items.html" class="text-xl font-semibold">🎁 Promotional Items</a>
+            <a href="print-materials.html" class="text-xl font-semibold">📄 Print Materials</a>
+        </div>
+        <div class="flex flex-col gap-4">
+            <h3 class="text-lg font-bold text-indigo-400">Locations</h3>
+            <span class="text-xl font-semibold text-indigo-400">Westlands HQ</span>
+            <span class="text-xl font-semibold">Mombasa Rd Branch</span>
+            <span class="text-xl font-semibold">East Africa Export</span>
+        </div>
         <button onclick="toggleMenu()" class="mt-auto py-4 bg-white/5 rounded-xl font-bold">Close Menu</button>
     </div>
 
